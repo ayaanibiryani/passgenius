@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Security Blue & Cyber Green Theme */
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Base - Clean, slightly cool white */
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+
+  /* Cards - Pure white with depth */
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  
+  /* Popovers */
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  /* Primary - Deep Trustworthy Blue */
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+
+  /* Secondary - Vibrant Cyan/Green Accent */
+  --secondary: 160 84% 39%;
+  --secondary-foreground: 210 40% 98%;
+
+  /* Muted elements */
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+
+  /* Accents */
+  --accent: 210 40% 96%;
+  --accent-foreground: 222 47% 11%;
+
+  /* Destructive */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  /* Borders & Inputs */
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 221 83% 53%;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+
+  /* Custom Scrollbar for a premium feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .input-premium {
+    @apply w-full px-4 py-3 rounded-xl bg-background border-2 border-border text-foreground 
+    placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 
+    transition-all duration-200 font-medium;
+  }
+
+  .btn-premium {
+    @apply px-6 py-3 rounded-xl font-semibold shadow-lg transition-all duration-200 ease-out 
+    active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+}
