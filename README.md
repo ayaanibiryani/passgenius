@@ -1,1 +1,1 @@
-# passgenius
+a password generator, beginner project
